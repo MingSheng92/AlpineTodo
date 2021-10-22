@@ -1,0 +1,69 @@
+.todo-container {
+  width: 50%;
+  margin: auto;
+}
+
+.user_input_task {
+  width: 80%;
+  height: 2rem;
+}
+
+.todoBtn {
+  cursor: pointer;
+  background-color: #eaf2ff;
+  border: 0.1rem solid #eaf2ff;
+  border-radius: .4rem;
+  display: inline-block;
+  font-size: 0.7rem;
+  font-weight: 900;
+  height: 2.1rem;
+  letter-spacing: .1rem;
+  line-height: 1.2rem;
+  padding: 0 1.0rem;
+  text-align: center;
+  text-decoration: none;
+  text-transform: uppercase;
+  white-space: nowrap;
+  transition: 0.3s;
+}
+
+.todoBtn:hover {
+  background-color: #bdc7d9;
+}
+
+.todo {
+  display: flex;
+  align-items: center;
+  min-width: 300px;
+  margin: 0.3em auto;
+}
+
+.task-remove {
+  margin-left: 0.5rem;
+  cursor: pointer;
+}
+
+.task-item {
+  font-size: 1.2rem;
+  font-weight: 900;
+  letter-spacing: .1rem;
+  line-height: 1.2rem;
+  padding: 0 1.0rem;
+}
+
+.task_edit {
+  min-width: 350px;
+  height: 2rem;
+}
+
+.completed {
+  text-decoration: line-through;
+}
+
+.empty_task_msg {
+  font-size: 1.2rem;
+  font-weight: 900;
+  letter-spacing: .1rem;
+  line-height: 1.2rem;
+  margin: 0.3em auto;
+}

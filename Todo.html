@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>TODO app with Alpine.js</title>
+    <script defer src="https://unpkg.com/alpinejs@3.4.2/dist/cdn.min.js"></script>
+    <script src="todo_app.js"></script>
+    <link rel="stylesheet" href="todo_app.css">
+</head>
+
+<body>
+  <div 
+    class="todo-container" 
+    x-data="todoApp()"
+  >
+    <div class="input_area">
+	  <form>
+        <fieldset>
+          <input 
+            class="user_input_task"
+            type="text"
+            placeholder="What do you want to do today?"
+          />
+            <button class="todoBtn" @click="addTodo">Add</button>
+        </fieldset>
+	  </form>
+    </div>	
+	
+    <div class="task_list">
+      <template 
+        x-show="todos.length"
+        x-for="task in todos"
+        :key="task.id"
+      >
+        <div class="todo">
+          <input 
+            type="checkbox"
+            @click="completeTodo(task)"
+          />
+          <div 
+            x-text="task.item"
+            class="task-item"
+            @click="setEdit(task)"
+            x-show="!task.editing"
+            :class="{'completed' : task.completed }"
+          ></div>
+		  
+          <input 
+            type="text"
+            x-show="task.editing"
+            x-model="task.item"
+            :value="task.item"
+            @click.away="task.editing=false"
+            class="task_edit"
+            :id="`task_edit-${task.id}`"
+          />
+          <span
+            class="task-remove"
+            @click="remove(event, task.id)"
+		  >&times;</span>
+        </div>
+      </template>
+      <div class="empty_task_msg" x-show="!todos.length">No plans for today!</div>
+    </div>
+  </div>
+</body>
+</html>
